@@ -23,9 +23,11 @@ namespace Employees.EntityFramework.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Employee>> GetAllByRegionIdAsync(int regionId)
+        public async Task<List<Employee>> GetAllByHierarchyIdAsync(string hierarchyId)
         {
-            return await _context.Employees.Where(e => e.RegionId == regionId || e.Region.ParentId == regionId).ToListAsync();
+            var employees = _context.Employees.Where(e => e.Region.HierarchyId.StartsWith(hierarchyId));
+
+            return await employees.ToListAsync();
         }
     }
 }

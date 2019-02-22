@@ -23,6 +23,12 @@ namespace Employees.Core.Services
                 var parent = await _repository.FirstOrDefaultAsync(region.ParentId.Value);
 
                 region.Parent = parent ?? throw new Exception("Region does not exists.");
+
+                region.HierarchyId = parent.HierarchyId + id + "/";
+            }
+            else
+            {
+                region.HierarchyId = id + "/";
             }
 
             await _repository.CreateAsync(region);

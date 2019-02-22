@@ -12,13 +12,6 @@
     <ul id="emplyeesList"></ul>
 </div>
 
-<script>
-    function findEmployees() {
-        $('#emplyeesList').html('');
-
-        $.get('/api/region/' + $('#regionId').val() + '/employees', function (data) {
-            var list = data.map(i => '<li>' + i.Name + ' ' + i.Surname + '</li>');
-            $('#emplyeesList').html(list.join(''));
-        });
-    }
-</script>
+@section scripts{ 
+    <script src="~/Scripts/site.js"></script>
+}

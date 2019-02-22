@@ -52,10 +52,27 @@ namespace Employees.EntityFramework.Seed
                 }
             }
 
+            foreach (var region in regions)
+            {
+                region.HierarchyId = FillHierarchyRecursively(regions, region);
+            }
+
             context.Regions.AddRange(regions);
             context.Employees.AddRange(employees);
 
             base.Seed(context);
+        }
+
+        private string FillHierarchyRecursively(List<Region> regions, Region region)
+        {
+            if (region.ParentId == null)
+            {
+                return region.Id + "/";
+            }
+            else
+            {
+                return FillHierarchyRecursively(regions, regions.Find(r => r.Id == region.ParentId)) + region.Id + "/";
+            }
         }
     }
 }

@@ -28,12 +28,19 @@ namespace Employees.Core.Services
                 throw new Exception("Region does not exists.");
             }
 
-           await _repository.CreateAsync(new Employee(regionId, name, surname));
+            await _repository.CreateAsync(new Employee(regionId, name, surname));
         }
 
         public async Task<List<Employee>> GetAllByRegionIdAsync(int regionId)
         {
-            return await _repository.GetAllByRegionIdAsync(regionId);
+            var region = await _regionsRepository.FirstOrDefaultAsync(regionId);
+
+            if (region == null)
+            {
+                throw new Exception("Region does not exists.");
+            }
+
+            return await _repository.GetAllByHierarchyIdAsync(region.HierarchyId);
         }
     }
 }

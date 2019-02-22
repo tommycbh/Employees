@@ -10,6 +10,8 @@ namespace Employees.Core.Entities
 
         public string Name { get; set; }
 
+        public string HierarchyId { get; set; }
+
         public virtual List<Region> Children { get; set; }
 
         public virtual List<Employee> Employees { get; set; }
