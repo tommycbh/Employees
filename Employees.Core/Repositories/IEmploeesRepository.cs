@@ -8,6 +8,6 @@ namespace Employees.Core.Repositories
     {
         Task CreateAsync(Employee employee);
 
-        Task<List<Employee>> GetByRegionId(int regionId);
+        Task<List<Employee>> GetAllByRegionIdAsync(int region);
     }
 }

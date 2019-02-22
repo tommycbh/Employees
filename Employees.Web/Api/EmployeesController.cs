@@ -1,4 +1,5 @@
 ﻿using Employees.Core.Services;
+using Employees.Web.Api.Models;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -15,9 +16,9 @@ namespace Employees.Web.Api
 
         [HttpPost]
         [Route("api/Employee/")]
-        public async Task Post([FromBody]int regionId, [FromBody]string name, [FromBody]string surname)
+        public async Task Post([FromBody]EmployeeModel model)
         {
-            await _employeesService.CreateAsync(regionId, name, surname);
+            await _employeesService.CreateAsync(model.RegionId, model.Name, model.Surname);
         }
     }
 }

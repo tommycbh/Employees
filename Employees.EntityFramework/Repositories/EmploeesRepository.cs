@@ -23,9 +23,9 @@ namespace Employees.EntityFramework.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Employee>> GetByRegionId(int regionId)
+        public async Task<List<Employee>> GetAllByRegionIdAsync(int regionId)
         {
-            return await _context.Employees.Where(e => e.RegionId == regionId).ToListAsync();
+            return await _context.Employees.Where(e => e.RegionId == regionId || e.Region.ParentId == regionId).ToListAsync();
         }
     }
 }

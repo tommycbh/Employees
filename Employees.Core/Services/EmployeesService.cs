@@ -1,6 +1,7 @@
 ﻿using Employees.Core.Entities;
 using Employees.Core.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Employees.Core.Services
@@ -28,6 +29,11 @@ namespace Employees.Core.Services
             }
 
            await _repository.CreateAsync(new Employee(regionId, name, surname));
+        }
+
+        public async Task<List<Employee>> GetAllByRegionIdAsync(int regionId)
+        {
+            return await _repository.GetAllByRegionIdAsync(regionId);
         }
     }
 }
