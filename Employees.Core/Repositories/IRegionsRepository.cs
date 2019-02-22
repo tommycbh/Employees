@@ -1,5 +1,5 @@
-﻿using Employees.Core.Entities;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Employees.Core.Entities;
 
 namespace Employees.Core.Repositories
 {

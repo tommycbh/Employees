@@ -1,13 +1,13 @@
-﻿using Employees.Core.Entities;
-using Employees.Core.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Employees.Core.Entities;
+using Employees.Core.Repositories;
 
 namespace Employees.EntityFramework.Repositories
 {
-    public class EmploeesRepository: IEmploeesRepository
+    public class EmploeesRepository : IEmploeesRepository
     {
         private readonly EmployeesDbContext _context;
 

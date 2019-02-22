@@ -1,6 +1,6 @@
-﻿using Employees.Core.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Employees.Core.Entities;
 
 namespace Employees.Core.Repositories
 {

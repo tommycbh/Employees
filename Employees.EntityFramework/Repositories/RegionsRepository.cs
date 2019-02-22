@@ -1,7 +1,7 @@
-﻿using Employees.Core.Entities;
-using Employees.Core.Repositories;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
+using Employees.Core.Entities;
+using Employees.Core.Repositories;
 
 namespace Employees.EntityFramework.Repositories
 {

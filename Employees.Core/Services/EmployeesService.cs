@@ -1,8 +1,8 @@
-﻿using Employees.Core.Entities;
-using Employees.Core.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Employees.Core.Entities;
+using Employees.Core.Repositories;
 
 namespace Employees.Core.Services
 {

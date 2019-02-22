@@ -1,8 +1,8 @@
-﻿using Employees.Core.Services;
-using Employees.Web.Api.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Employees.Core.Services;
+using Employees.Web.Api.Models;
 
 namespace Employees.Web.Api
 {
@@ -27,12 +27,26 @@ namespace Employees.Web.Api
         }
 
         [HttpGet]
-        [Route("region/{id}/employees")]
+        [Route("api/region/{id}/employees")]
         public async Task<List<EmployeeModel>> GetEmployees(int id)
         {
             var employees = await _employeesService.GetAllByRegionIdAsync(id);
 
-            return AutoMapper.Mapper.Map<List<EmployeeModel>>(employees);
+            var result = new List<EmployeeModel>();
+
+            // TODO: Replace with automapper
+            foreach (var employee in employees)
+            {
+                result.Add(
+                    new EmployeeModel
+                    {
+                        Name = employee.Name,
+                        RegionId = employee.RegionId,
+                        Surname = employee.Surname
+                    });
+            }
+
+            return result;
         }
     }
 }

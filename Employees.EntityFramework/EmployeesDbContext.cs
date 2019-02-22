@@ -1,7 +1,7 @@
-﻿using Employees.Core.Entities;
-using Employees.EntityFramework.Seed;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using Employees.Core.Entities;
+using Employees.EntityFramework.Seed;
 
 namespace Employees.EntityFramework
 {

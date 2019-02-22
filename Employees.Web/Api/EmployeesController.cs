@@ -1,7 +1,7 @@
-﻿using Employees.Core.Services;
-using Employees.Web.Api.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using Employees.Core.Services;
+using Employees.Web.Api.Models;
 
 namespace Employees.Web.Api
 {
